@@ -1,4 +1,3 @@
-import {useAllplans} from "../../hooks/useAllplans";
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { db } from '../../firebase';
