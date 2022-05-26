@@ -9,7 +9,7 @@ export const useAllPlans = () => {
   const getPlans = useCallback(() => {
     const plansCollectionRef = collection(db, 'plans');
     getDocs(plansCollectionRef).then((querySnapshot) => {
-      setPlans(querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setPlans(querySnapshot.docs.map((doc) => { return doc.data() as Plan; }));
     });  }, []);
 
   return {getPlans, plans}
