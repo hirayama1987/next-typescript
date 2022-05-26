@@ -1,22 +1,14 @@
-import { useState, useEffect } from 'react';
+import {useAllPlans} from "../../hooks/useAllPlans";
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { db } from '../../firebase';
-import { collection, getDocs, addDoc } from 'firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
 
 
 export default function Plans() {
-  const [plans, setPlans] = useState([]);
+  const {getPlans, plans} = useAllPlans()
 
-
-  useEffect(() => {
-    const plansCollectionRef = collection(db, 'plans');
-
-    console.log(plansCollectionRef);
-    getDocs(plansCollectionRef).then((querySnapshot) => {
-      setPlans(querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    });
-    console.log('sss');
-  }, []);
+  useEffect(() => getPlans(), [])
 
   const handleSubmit = async (event) => {
     event.preventDefault();

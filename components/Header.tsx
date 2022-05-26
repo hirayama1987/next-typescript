@@ -20,6 +20,9 @@ export default function Header() {
               <Link href="/">
                 <a className="text-indigo-500 text-lg font-semibold">Home</a>
               </Link>
+              <Link href="/users">
+                <a className="text-indigo-500 text-lg font-semibold">Users</a>
+              </Link>
               <Link href="/plans">
                 <a className="text-indigo-500 text-lg font-semibold">Plans</a>
               </Link>
